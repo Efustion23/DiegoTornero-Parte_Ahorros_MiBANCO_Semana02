@@ -1,0 +1,292 @@
+/* ============================================================
+   css/modulo.css — Estilos específicos para módulos
+   ============================================================ */
+
+/* ── Estilos para el módulo de Ahorro ── */
+
+/* Tarjeta principal de ahorro */
+.card-ahorro-principal {
+  background: linear-gradient(135deg, var(--color-primario) 0%, #1A3A6B 100%);
+  color: white !important;
+  border: none;
+  border-radius: 16px; /* Borde más redondeado */
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card-ahorro-principal .text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.card-ahorro-principal:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(26, 58, 107, .25);
+}
+
+.card-ahorro-principal .badge {
+  background: linear-gradient(90deg, #198754, #20c997);
+  color: white;
+  font-weight: 600;
+}
+
+/* Monto principal */
+.monto-principal {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #28a745; 
+  background: linear-gradient(90deg, #2ecc71, #28a745);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Cards de estadísticas */
+.card-estadistica {
+  border: none;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,.06);
+  transition: all .3s ease;
+}
+
+.card-estadistica:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(0,0,0,.1);
+}
+
+.card-estadistica .fw-bold {
+  color: var(--color-primario);
+}
+
+/* Barra de progreso mejorada */
+.progress-ahorro {
+  height: 24px;
+  border-radius: 50px;
+  background: #e9ecef;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.1);
+}
+
+.progress-bar-ahorro {
+  background: linear-gradient(90deg, #198754 0%, #20c997 50%, #28a745 100%);
+  border-radius: 50px;
+  transition: width 1s cubic-bezier(0.25, 1, 0.5, 1); /* Transición más suave */
+  position: relative;
+}
+
+.progress-bar-ahorro::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,.3) 0%, transparent 50%);
+  animation: shimmer 2.5s infinite linear; /* Animación más lenta */
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Tabs mejorados */
+.nav-tabs-ahorro .nav-link {
+  border: none;
+  background: transparent;
+  color: var(--color-texto);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  position: relative;
+  transition: all .3s ease;
+}
+.nav-tabs-ahorro .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #198754, #20c997);
+  border-radius: 2px;
+  transition: width .3s ease;
+}
+.nav-tabs-ahorro .nav-link.active {
+  color: var(--color-primario);
+}
+.nav-tabs-ahorro .nav-link.active::after {
+  width: 50%;
+}
+.nav-tabs-ahorro .nav-link:hover:not(.active) {
+  background: rgba(25,135,84,.05);
+}
+
+/* Tabla de movimientos */
+.table-ahorro {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+.table-ahorro thead {
+  background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+  color: white;
+}
+
+.table-ahorro tbody tr {
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.table-ahorro tbody tr:hover {
+  background: rgba(25,135,84,.05);
+  transform: scale(1.015); /* Efecto de zoom más notorio */
+}
+
+/* Spinner personalizado */
+.spinner-ahorro {
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid rgba(25,135,84,.2);
+  border-left-color: #198754;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Botón flotante ── */
+.btn-flotante {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #198754, #20c997);
+  border: none;
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 4px 20px rgba(25,135,84,.4);
+  transition: all .3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-flotante i {
+  transition: transform .3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-flotante:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(25,135,84,.6);
+}
+
+.btn-flotante:hover i {
+  transform: rotate(135deg);
+}
+
+/* ── Modal mejorado ── */
+.modal-content {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,.2);
+}
+.modal.fade .modal-dialog {
+  transition: transform .3s ease-out;
+  transform: scale(0.9);
+}
+.modal.show .modal-dialog {
+  transform: scale(1);
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+}
+
+.modal-body .btn {
+  transition: all .3s ease;
+  border-radius: 12px;
+}
+
+.modal-body .btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+}
+
+/* ── Animaciones de entrada escalonadas ── */
+.main-content > * {
+  animation: fadeInUp .7s ease-out .2s both;
+}
+.main-content > .row,
+.main-content > .card {
+  animation: none; /* Quitamos la animación del contenedor para animar los hijos */
+}
+.row > [class*="col-"] {
+  animation: fadeInUp .7s ease-out both;
+}
+/* Staggering delays */
+.row.g-4 > .col-12:nth-child(1) { animation-delay: .3s; }
+.row.g-4 > .col-12:nth-child(2) { animation-delay: .4s; }
+
+.main-content > .card:nth-of-type(1) { animation-delay: .5s; }
+.main-content > .card:nth-of-type(2) { animation-delay: .6s; }
+.main-content > .card:nth-of-type(3) { animation-delay: .7s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Efectos de partículas (opcional) ── */
+.particulas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particula {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(25,135,84,.3);
+  border-radius: 50%;
+  animation: float 8s infinite linear;
+}
+
+.particula:nth-child(odd) {
+  animation-duration: 10s;
+  animation-delay: -3s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
